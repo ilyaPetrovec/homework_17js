@@ -54,19 +54,6 @@ salary2(800);
 // время, вычисляя каждую комбинацию только один раз, ибо второй и последующие обращения просто вернут результат из
 // кэша.
 
-multiply = (a, b) => {
-    const stamp = new Date().getTime();
-    while(new Date().getTime() < stamp + 2000) {
-        return a*b;
-    };
-};
-
-function newMultiply(a, b) {
-    const cache = multiply(a, b);
-    return `key: ${a} - ${b}, value: ${cache}`;
-};
-
-console.log(newMultiply(8,4))
 
 const multiple = (a, b) => {
     const stamp = new Date().getTime();
