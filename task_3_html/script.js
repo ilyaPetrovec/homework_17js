@@ -67,3 +67,38 @@ function newMultiply(a, b) {
 };
 
 console.log(newMultiply(8,4))
+
+const multiple = (a, b) => {
+    const stamp = new Date().getTime();
+    while (new Date().getTime() < stamp + 2000) {}
+    return a * b;
+  };
+  
+  console.log(multiple(2, 3));
+  
+  function decorate() {
+    const cache = new Map();
+  
+    return function (a, b) {
+      const key = `${a}-${b}`;
+      if (cache.has(key)) {
+        return cache.get(key);
+      } else {
+        const result = multiple(a, b);
+        cache.set(key, result);
+        return result;
+      }
+    };
+  }
+  
+  const newMultiple = decorate();
+  
+  console.log(newMultiple(3, 1));
+  console.log(newMultiple(2, 1));
+  console.log(newMultiple(1, 1));
+  console.log(newMultiple(3, 1));
+  console.log(newMultiple(2, 1));
+  console.log(newMultiple(1, 1));
+  console.log(newMultiple(3, 1));
+  console.log(newMultiple(2, 1));
+  console.log(newMultiple(1, 1));
